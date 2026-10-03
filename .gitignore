@@ -1,2 +1,4 @@
 /node_modules/
 /cli/node_modules/
+/cli/dist/
+/app/src-tauri/binaries/

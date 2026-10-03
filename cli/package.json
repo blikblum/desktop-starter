@@ -2,8 +2,10 @@
   "name": "cli",
   "version": "1.0.0",
   "description": "",
+  "bin": "index.cjs",
   "main": "index.cjs",
   "scripts": {
+    "build": "node stage-binaries.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +19,14 @@
     }
   },
   "type": "module",
+  "pkg": {
+    "targets": [
+      "node24-linux-x64",
+      "node24-macos-x64",
+      "node24-win-x64"
+    ],
+    "outputPath": "dist"
+  },
   "devDependencies": {
     "@yao-pkg/pkg": "^6.23.0"
   }

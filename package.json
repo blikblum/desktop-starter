@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:cli": "pnpm --filter cli build",
+    "dev": "pnpm --filter app tauri dev",
+    "build": "pnpm --filter app tauri build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
