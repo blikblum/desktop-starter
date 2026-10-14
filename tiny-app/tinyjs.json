@@ -1,0 +1,14 @@
+{
+  "name": "tiny-app",
+  "title": "tiny-app",
+  "size": "960x640",
+  "id": "com.example.tiny-app",
+  "version": "0.1.0",
+  "backend": "backend/main.ts",
+  "frontend": {
+    "build": "pnpm run build",
+    "dist": "dist",
+    "dev": "pnpm run dev",
+    "devUrl": "http://127.0.0.1:5173"
+  }
+}

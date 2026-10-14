@@ -1,5 +1,6 @@
 packages:
   - 'app'
+  - 'tiny-app'
   - 'cli'
 allowBuilds:
   esbuild: true
