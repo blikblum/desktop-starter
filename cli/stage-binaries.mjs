@@ -12,6 +12,12 @@ const binariesDirectory = join(
   "src-tauri",
   "binaries",
 );
+const tinyResourcesDirectory = join(
+  cliDirectory,
+  "..",
+  "tiny-app",
+  "resources",
+);
 const pkgCommand = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
 const targets = [
   {
@@ -34,12 +40,15 @@ const targets = [
 rmSync(outputDirectory, { force: true, recursive: true });
 mkdirSync(outputDirectory, { recursive: true });
 mkdirSync(binariesDirectory, { recursive: true });
+mkdirSync(tinyResourcesDirectory, { recursive: true });
 
 for (const target of targets) {
   const pkgOutputPath = join(outputDirectory, target.pkgOutput);
   const tauriOutputPath = join(binariesDirectory, target.tauriOutput);
+  const tinyOutputPath = join(tinyResourcesDirectory, target.tauriOutput);
 
   rmSync(tauriOutputPath, { force: true });
+  rmSync(tinyOutputPath, { force: true });
   execFileSync(
     pkgCommand,
     [
@@ -56,10 +65,14 @@ for (const target of targets) {
     { cwd: cliDirectory, stdio: "inherit" },
   );
   copyFileSync(pkgOutputPath, tauriOutputPath);
+  copyFileSync(pkgOutputPath, tinyOutputPath);
 
   if (process.platform !== "win32") {
     chmodSync(tauriOutputPath, 0o755);
+    chmodSync(tinyOutputPath, 0o755);
   }
 }
 
-console.log(`Staged ${targets.length} Tauri sidecar binaries in ${binariesDirectory}`);
+console.log(
+  `Staged ${targets.length} CLI binaries in ${binariesDirectory} and ${tinyResourcesDirectory}`,
+);

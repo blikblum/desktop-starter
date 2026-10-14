@@ -7,8 +7,9 @@
     "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
     "build": "tsc && vite build --base=./",
     "preview": "vite preview",
-    "tiny-dev": "tinyjs dev",
-    "tiny-build": "tinyjs build"
+    "build:sidecar": "pnpm --dir ../cli build",
+    "tiny-dev": "pnpm run build:sidecar && tinyjs dev",
+    "tiny-build": "pnpm run build:sidecar && tinyjs build"
   },
   "devDependencies": {
     "typescript": "~6.0.2",

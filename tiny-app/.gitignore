@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .build
+resources/cli-*
 
 # Editor directories and files
 .vscode/*

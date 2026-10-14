@@ -5,6 +5,10 @@
   "id": "com.example.tiny-app",
   "version": "0.1.0",
   "backend": "backend/main.ts",
+  "resources": [],
+  "macos": { "resources": ["cli-x86_64-apple-darwin"] },
+  "windows": { "resources": ["cli-x86_64-pc-windows-msvc.exe"] },
+  "linux": { "resources": ["cli-x86_64-unknown-linux-gnu"] },
   "frontend": {
     "build": "pnpm run build",
     "dist": "dist",

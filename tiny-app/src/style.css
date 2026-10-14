@@ -294,3 +294,84 @@ code {
     border-right-color: var(--border);
   }
 }
+
+.cli-panel {
+  width: min(90vw, 640px);
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 15, 15, 0.08);
+  text-align: left;
+}
+
+.cli-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #646cff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cli-panel h2 {
+  margin: 0.25rem 0 0;
+  font-size: 1.35rem;
+}
+
+#cli-status {
+  min-height: 1.5rem;
+  margin: 1rem 0 0.75rem;
+  color: #555555;
+}
+
+#cli-output {
+  min-height: 7rem;
+  max-height: 14rem;
+  margin: 0;
+  padding: 1rem;
+  overflow: auto;
+  border: 1px solid #252525;
+  border-radius: 8px;
+  color: #f6f6f6;
+  background: #20252b;
+  font: 0.9rem/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  white-space: pre-wrap;
+}
+
+#cli-run:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+@media (max-width: 520px) {
+  .cli-panel-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cli-panel-header button {
+    width: 100%;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .cli-panel {
+    border-color: #4a4a4a;
+    background: #242424;
+  }
+
+  #cli-status {
+    color: #c7c7c7;
+  }
+}
